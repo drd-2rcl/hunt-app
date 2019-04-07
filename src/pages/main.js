@@ -12,7 +12,6 @@ export default class Main extends Component {
     productInfo: {},
     docs: [],
     page: 1,
-
   }
 
   componentDidMount() {
@@ -40,7 +39,12 @@ export default class Main extends Component {
     <View style={styles.productContainer}>
       <Text style={styles.productTitle}>{item.title}</Text>
       <Text style={styles.productDescription}>{item.description}</Text>
-      <TouchableOpacity style={styles.productButton} onPress={() => {}}>
+      <TouchableOpacity 
+        style={styles.productButton} 
+        onPress={() => {
+          this.props.navigation.navigate('Product', { product: item });
+        }}
+      >
         <Text style={styles.productButtonText}>Acessar</Text>
       </TouchableOpacity>
     </View>
